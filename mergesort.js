@@ -5,9 +5,9 @@ merge.split = function(array){
 		return array;
 	} else {
 	var result = [];
-	result.push(	array.slice(0, Math.ceil(array.length/2))	)	
-	result.push(	array.slice(Math.ceil(array.length/2))	); 
-	return result
+	result.push(array.slice(0, Math.ceil(array.length/2)))	;
+	result.push(array.slice(Math.ceil(array.length/2))); 
+	return result;
 	}
 }
 
@@ -37,8 +37,7 @@ merge.combine = function(array){
 merge.sort = function(array){
 	if (array.length < 2){
 		return array;
-	} else {
-		var result = array
-
-	} 
+	}
+	var split = merge.split(array);
+	return (merge.combine([merge.sort(split[0]),merge.sort(split[1])]));
 }
